@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d6b3f4e3c1.js" crossorigin="anonymous"></script>
+    <title>News App</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top ">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white nav-text" href="#">Daily news</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span style=" border-color: blue; border-radius: 20%;" class="navbar-toggler-icon "></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto  mt-3  mb-lg-0 nav nav-pills nav-fill gap-2 p-1 small bg-info rounded-5 shadow-sm"
+                        id="pillNav2" role="tablist"
+                        style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-info); --bs-nav-pills-link-active-bg: var(--bs-white);">
+                        <li class="nav-item me-3 p-1" role="presentation">
+                            <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button"
+                                role="tab" aria-selected="true">Home</button>
+                        </li>
+                        <li class="nav-item me-3 p-1" role="presentation">
+                            <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button"
+                                role="tab" aria-selected="false"><a href="/?q=Weather" > Weather</a></button>
+                        </li>
+                        <li class="nav-item me-3 p-1" role="presentation">
+                            <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button"
+                                role="tab" aria-selected="false">Sports</button>
+                        </li>
+                        <li class="nav-item me-3 p-1" role="presentation">
+                            <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button"
+                                role="tab" aria-selected="false">Contact</button>
+                        </li>
+                    </ul>
+                    <form action="/search" method="post" class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" name='cityname' type="search" placeholder="Search">
+                        <button style="background-color:black ;" class="btn btn-outline-info"
+                            type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ====================== herro section =========================-->
+    <main>
+        <div class="bg  px-4 py-5 text-center " style="height: 550px;">
+            <div class="py-5  mt-5">
+                <h1 class="display-1 fw-bold text-center text-white   p-4 ">News Letter</h1>
+                <p class="text-info fs-4 ">Learn from News</p>
+                <div class="col-lg-6 mx-auto">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center p-4">
+                        <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">More
+                            News</button>
+                        <button type="button" class="btn btn-outline-light btn-lg px-4">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <section>
+        <div class="container-fluid  ">
+            <div class="album   ">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                        <% articals.forEach((article,index)=>{ %>
+
+                            <div class="col mt-5">
+                                <% if(article.urlToImage==null) { %>
+                                    <img src='https://newsonair.gov.in/writereaddata/News_Pictures/NAT/2023/Aug/NPIC-202381381330.jpg'
+                                        class="card-img-top rounded-top-1" width="100%" height="200" alt="Load Image">
+                                    <% } else { %>
+                                        <img src='<%- article.urlToImage %>' class="card-img-top rounded-top-1"
+                                            width="100%" height="200" alt="Load image">
+                                        <% } %>
+                                            <div class="card shadow-sm border-0">
+                                                <div class="card-body">
+                                                    <h4><%- article.title%></h1>
+                                                            <% if(article.description==null) { %>
+                                                                <p class="card-text">Lorem ipsum, dolor sit amet
+                                                                    consectetur adipisicing elit. Deleniti quibusdam
+                                                                    nisi voluptatibus facilis possimus praesentium autem
+                                                                    ab quos itaque saepe?
+                                                                </p>
+                                                                <% } else { %>
+                                                                    <p class="card-text"><%- article.description %></p>
+                                                                    <% } %>
+                                                                        <div
+                                                                            class="d-flex justify-content-between align-items-center">
+                                                                            <div class="btn-group">
+                                                                                <button type="button"
+                                                                                    class="btn btn-sm btn-outline-info"><a class="read" target="_blank" href="<%-  article.url %>">Read more..</a></button>
+                                                                                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                                                            </div>
+                                                                            <small class="text-body-secondary"><%-
+                                                                                    article.publishedAt %></small>
+                                                                                    
+                                                                        </div>
+                                                </div>
+                                            </div>
+                                            
+                            </div>
+                            <% }) %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+  
+
+    <div class="container-fluid px-4 py-5 bg-footer">
+        <h2 class="pb-2 ">Features with title</h2>
+
+        <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+            <div class="col d-flex flex-column align-items-start gap-2">
+                <h2 class="fw-bold text-white">Left-aligned title explaining these awesome features</h2>
+                <p class="text-white">Paragraph of text beneath the heading to explain the heading. We'll add
+                    onto it with another sentence and probably just keep going until we run out of words.</p>
+                <a href="#" style="background-color:black ;" class="btn btn-outline-info text-white">Primary button</a>
+            </div>
+
+            <div class="col text-info">
+                <div class="row row-cols-1 row-cols-sm-2 g-4">
+                    <div class="col d-flex flex-column gap-2">
+                        <div class="feature-icon-small d-inline-flex align-items-center fs-1 rounded-3 ">
+                            <i class="fa-brands fa-square-twitter"></i>
+                        </div>
+                        <h4 class="fw-semibold mb-0 text-white">Featured title</h4>
+                        <p class=" text-white">Paragraph of text beneath the heading to explain the heading.</p>
+                    </div>
+
+                    <div class="col d-flex flex-column gap-2">
+                        <div class="feature-icon-small d-inline-flex align-items-center  fs-1 rounded-3">
+                            <i class="fa-brands fa-square-instagram"></i>
+                        </div>
+                        <h4 class="fw-semibold mb-0 text-white">Featured title</h4>
+                        <p class="text-white">Paragraph of text beneath the heading to explain the heading.</p>
+                    </div>
+
+                    <div class="col d-flex flex-column gap-2">
+                        <div class="feature-icon-small d-inline-flex align-items-center  fs-1 rounded-3">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <h4 class="fw-semibold  text-white">Featured title</h4>
+                        <p class="text-white">Paragraph of text beneath the heading to explain the heading.</p>
+                    </div>
+
+                    <div class="col d-flex flex-column gap-2">
+                        <div class="feature-icon-small d-inline-flex align-items-center  fs-1 rounded-3">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </div>
+                        <h4 class="fw-semibold  text-white">Featured title</h4>
+                        <p class="text-white">Paragraph of text beneath the heading to explain the heading.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+     
+    <script src="https://kit.fontawesome.com/d6b3f4e3c1.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
