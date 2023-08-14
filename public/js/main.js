@@ -5,6 +5,12 @@ window.addEventListener("scroll", function () {
   nav.classList.toggle("sticky", window.scrollY > 400)
 })
 
+const d=document.getElementById('d')
+const date=new Date();
+const day=date.getDate()
+const month= date.getMonth()
+const year=date.getFullYear()
+ d.innerHTML=day+"/"+month+"/"+year
 
 // if (window.location.search) {
 // let articalesPerpage;

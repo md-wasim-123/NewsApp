@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/d6b3f4e3c1.js" crossorigin="anonymous"></script>
     <title>News App</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>
+<!-- ================================  navbar   ======================= -->
         <nav class="navbar navbar-expand-lg fixed-top ">
             <div class="container-fluid">
                 <a class="navbar-brand text-white nav-text" href="#">Daily news</a>
@@ -32,15 +30,15 @@
                         </li>
                         <li class="nav-item me-3 p-1" role="presentation">
                             <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button"
-                                role="tab" aria-selected="false"><a href="/?q=Weather" > Weather</a></button>
+                                role="tab" aria-selected="false"><a class="link" href="/?q=Weather" > Weather</a></button>
                         </li>
                         <li class="nav-item me-3 p-1" role="presentation">
                             <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button"
-                                role="tab" aria-selected="false">Sports</button>
+                                role="tab" aria-selected="false"><a class="link" href="/?q=Weather" > Sports</a></button>
                         </li>
                         <li class="nav-item me-3 p-1" role="presentation">
                             <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button"
-                                role="tab" aria-selected="false">Contact</button>
+                                role="tab" aria-selected="false"><a class="link" href="/?q=Weather" >Contact</a></button>
                         </li>
                     </ul>
                     <form action="/search" method="post" class="d-flex mt-3" role="search">
@@ -51,89 +49,84 @@
                 </div>
             </div>
         </nav>
-    </header>
-
-    <!-- ====================== herro section =========================-->
-    <main>
-        <div class="bg  px-4 py-5 text-center " style="height: 550px;">
-            <div class="py-5  mt-5">
-                <h1 class="display-1 fw-bold text-center text-white   p-4 ">News Letter</h1>
-                <p class="text-info fs-4 ">Learn from News</p>
-                <div class="col-lg-6 mx-auto">
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center p-4">
-                        <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">More
-                            News</button>
-                        <button type="button" class="btn btn-outline-light btn-lg px-4">Contact</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-
-    <section>
-        <div class="container-fluid  ">
-            <div class="album   ">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                        <% articals.forEach((article,index)=>{ %>
-
-                            <div class="col mt-5">
-                                <% if(article.urlToImage==null) { %>
-                                    <img src='https://newsonair.gov.in/writereaddata/News_Pictures/NAT/2023/Aug/NPIC-202381381330.jpg'
-                                        class="card-img-top rounded-top-1" width="100%" height="200" alt="Load Image">
-                                    <% } else { %>
-                                        <img src='<%- article.urlToImage %>' class="card-img-top rounded-top-1"
-                                            width="100%" height="200" alt="Load image">
-                                        <% } %>
-                                            <div class="card shadow-sm border-0">
-                                                <div class="card-body">
-                                                    <h4><%- article.title%></h1>
-                                                            <% if(article.description==null) { %>
-                                                                <p class="card-text">Lorem ipsum, dolor sit amet
-                                                                    consectetur adipisicing elit. Deleniti quibusdam
-                                                                    nisi voluptatibus facilis possimus praesentium autem
-                                                                    ab quos itaque saepe?
-                                                                </p>
-                                                                <% } else { %>
-                                                                    <p class="card-text"><%- article.description %></p>
-                                                                    <% } %>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center">
-                                                                            <div class="btn-group">
-                                                                                <button type="button"
-                                                                                    class="btn btn-sm btn-outline-info"><a class="read" target="_blank" href="<%-  article.url %>">Read more..</a></button>
-                                                                                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
-                                                                            </div>
-                                                                            <small class="text-body-secondary"><%-
-                                                                                    article.publishedAt %></small>
-                                                                                    
-                                                                        </div>
-                                                </div>
-                                            </div>
-                                            
-                            </div>
-                            <% }) %>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
  
+<!-- ================================  herro ection  ======================= -->
 
-  
+        <main>
+            <div class="bg  px-4 py-5 text-center " style="height: 550px;">
+                <div class="py-5  mt-5">
+                    <h1 class="display-1 fw-bold text-center   text-white">News Letter</h1>
+                    <p class="text-info fs-4 ">Learn from News</p>
+                    <div class="col-lg-6 mx-auto">
+                        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center p-4">
+                            <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">More
+                                News</button>
+                            <button type="button" class="btn btn-outline-light btn-lg px-4">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+ 
+<!-- ================================  box card   ======================= -->
+        <section>
+            <div class="container-fluid  mt-2">
+                <div class="album   ">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    
+                            <% articals.forEach((article,index)=>{ %>
+    
+                                <div class="col mt-5 box pe-0 mb-3">
+                                    <% if(article.urlToImage == null) { %>
+                                        <img src='https://newsonair.gov.in/writereaddata/News_Pictures/NAT/2023/Aug/NPIC-202381381330.jpg'
+                                            class="card-img-top rounded-top-1" width="100%" height="200" alt="Load Image">
+                                        <% } else { %>
+                                            <img src='<%- article.urlToImage %>' class="card-img-top rounded-top-1"
+                                                width="100%" height="200" alt="Load image">
+                                            <% } %>
+                                                <div class="card shadow-sm rounded-0">
+                                                    <div class="card-body"  >
+                                                        <h4><%= article.title.substring(0,40)+"..." %></h1>
+                                                          
+                                                                <% if(article.description==null) { %>
+                                                                    <p class="card-text">We all have some unhealthy habits that we wish to give up. I...
+                                                                    </p>
+                                                                    <% } else { %>
+                                                                        <p class="card-text"><%- article.description.substring(0,60)+"..."  %></p>
+                                                                        <% } %>
+                                                                            <div
+                                                                                class="d-flex justify-content-between align-items-center">
+                                                                                <div class="btn-group">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-sm btn-outline-info"><a class="link" target="_blank" href="<%-  article.url %>">Read more..</a></button>
+                                                                                    <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                                                                </div>
+                                                                                <small id="d" class="text-body-secondary"></small>
+                                                                                        
+                                                                            </div>
+                                                    </div>
+                                                </div>
+                                                
+                                </div>
+                                <% }) %>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="container-fluid px-4 py-5 bg-footer">
-        <h2 class="pb-2 ">Features with title</h2>
-
+ 
+<!-- ================================  footer  ======================= -->
+      <div class="container-fluid px-4 py-5 bg-footer bg-info">
         <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
             <div class="col d-flex flex-column align-items-start gap-2">
-                <h2 class="fw-bold text-white">Left-aligned title explaining these awesome features</h2>
-                <p class="text-white">Paragraph of text beneath the heading to explain the heading. We'll add
-                    onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" style="background-color:black ;" class="btn btn-outline-info text-white">Primary button</a>
+                <h2 class="fw-bold text-white">Start with a Strong Headline:</h2>
+                <p class="text-white">Local Squirrel Declares Nut Independence: Demands Bigger Trees and Better Snacking Options</p>
+                <a href="#" style="background-color:black ;" class="btn btn-outline-info text-white">Show</a>
             </div>
 
             <div class="col text-info">
@@ -142,7 +135,7 @@
                         <div class="feature-icon-small d-inline-flex align-items-center fs-1 rounded-3 ">
                             <i class="fa-brands fa-square-twitter"></i>
                         </div>
-                        <h4 class="fw-semibold mb-0 text-white">Featured title</h4>
+                        <h4 class="fw-semibold mb-0 text-white">News Tiwtter</h4>
                         <p class=" text-white">Paragraph of text beneath the heading to explain the heading.</p>
                     </div>
 
@@ -150,7 +143,7 @@
                         <div class="feature-icon-small d-inline-flex align-items-center  fs-1 rounded-3">
                             <i class="fa-brands fa-square-instagram"></i>
                         </div>
-                        <h4 class="fw-semibold mb-0 text-white">Featured title</h4>
+                        <h4 class="fw-semibold mb-0 text-white">Post Cast News</h4>
                         <p class="text-white">Paragraph of text beneath the heading to explain the heading.</p>
                     </div>
 
@@ -158,7 +151,7 @@
                         <div class="feature-icon-small d-inline-flex align-items-center  fs-1 rounded-3">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
-                        <h4 class="fw-semibold  text-white">Featured title</h4>
+                        <h4 class="fw-semibold  text-white">Newspaper</h4>
                         <p class="text-white">Paragraph of text beneath the heading to explain the heading.</p>
                     </div>
 
@@ -166,7 +159,7 @@
                         <div class="feature-icon-small d-inline-flex align-items-center  fs-1 rounded-3">
                             <i class="fa-brands fa-pinterest"></i>
                         </div>
-                        <h4 class="fw-semibold  text-white">Featured title</h4>
+                        <h4 class="fw-semibold  text-white">Feature</h4>
                         <p class="text-white">Paragraph of text beneath the heading to explain the heading.</p>
                     </div>
                 </div>
@@ -174,14 +167,8 @@
         </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-     
     <script src="https://kit.fontawesome.com/d6b3f4e3c1.js" crossorigin="anonymous"></script>
+
     <script src="js/main.js"></script>
-
 </body>
-
 </html>

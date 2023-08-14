@@ -1,37 +1,67 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.bg{
-       
-    background: radial-gradient(100% 225% at 100% 0%, #FF0000 0%, #000000 100%), linear-gradient(236deg, #00C2FF 0%, #000000 100%), linear-gradient(135deg, #CDFFEB 0%, #CDFFEB 36%, #009F9D 36%, #009F9D 60%, #07456F 60%, #07456F 67%, #0F0A3C 67%, #0F0A3C 100%);
-    background-blend-mode: overlay, hard-light, normal;
-    
-  }
-  .nav-text{
-    font-size: 2rem;
-    font-weight: 900;
-  }
- 
-  .sticky {
-    padding-bottom: 20px;
-    background: radial-gradient(100% 225% at 100% 0%, #FF0000 0%, #000000 100%), linear-gradient(236deg, #00C2FF 0%, #000000 100%), linear-gradient(135deg, #CDFFEB 0%, #CDFFEB 36%, #009F9D 36%, #009F9D 60%, #07456F 60%, #07456F 67%, #009F9D 67%, #0F0A3C 100%);
-    background-blend-mode: overlay, hard-light, normal;
-  }
-.box{
- /* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+body {
+  background: #fff;
 }
-.bg-footer{
-  background: rgb(1,3,11);
-background: linear-gradient(4deg, rgba(1,3,11,1) 0%, rgba(31,1,141,1) 50%, rgba(0,239,248,1) 100%);
+.bg {
+  background: radial-gradient(100% 225% at 100% 0%, #ff0000 0%, #000000 100%),
+    linear-gradient(236deg, #00c2ff 0%, #000000 100%),
+    linear-gradient(
+      135deg,
+      #cdffeb 0%,
+      #cdffeb 36%,
+      #009f9d 36%,
+      #009f9d 60%,
+      #07456f 60%,
+      #07456f 67%,
+      #0f0a3c 67%,
+      #0f0a3c 100%
+    );
+  background-blend-mode: overlay, hard-light, normal;
 }
-.read{
+.nav-text {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.sticky {
+  padding-bottom: 20px;
+  background: radial-gradient(100% 225% at 100% 0%, #ff0000 0%, #000000 100%),
+    linear-gradient(236deg, #00c2ff 0%, #000000 100%),
+    linear-gradient(
+      135deg,
+      #cdffeb 0%,
+      #cdffeb 36%,
+      #009f9d 36%,
+      #009f9d 60%,
+      #07456f 60%,
+      #07456f 67%,
+      #009f9d 67%,
+      #0f0a3c 100%
+    );
+  background-blend-mode: overlay, hard-light, normal;
+}
+.box {
+  transition: all 0.3s ease-in-out;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+    5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+.box:hover {
+  box-shadow: 0 0 1px rgba(33, 33, 33, 0.2);
+}
+.bg-footer {
+  background: rgb(1, 3, 11);
+  background: linear-gradient(
+    4deg,
+    rgba(1, 3, 11, 1) 0%,
+    rgba(31, 1, 141, 1) 50%,
+    rgb(48, 118, 238) 100%
+  );
+}
+.link {
+  color: #000000;
   text-decoration: none;
 }
